@@ -1,42 +1,3 @@
-# tsc-study
-
-## 基础类型
-
-### 元组类型（Tuple）
-
-1、useState中就使用到了元组类型
-
-```tsx
-import { useState } from 'react';
-function useCount() {
-  const [count, setCount] = useState(0);
-  return ....;
-}
-```
-
-
-
-## 常见错误
-
-1、ts(2322)是一个静态类型检查的错误，在注解的类型和赋值的类型不同的时候就会抛出这个错误。
-
-
-
-## tsc、ts-node命令
-
-```bash
-// ts代码转义，并能够实时转义
-tsc HelloWorld.ts --strict --alwaysStrict false --watch
-
-// 在命令行运行ts代码
-ts-node HelloWorld.ts
-```
-
-
-
-## tsconfig.json配置
-
-```json
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
@@ -109,5 +70,3 @@ ts-node HelloWorld.ts
     // "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
   }
 }
-```
-
