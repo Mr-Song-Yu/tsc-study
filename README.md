@@ -14,6 +14,90 @@ function useCount() {
 }
 ```
 
+### any
+
+
+
+### unknown
+
+
+
+### void
+
+仅适用于表示没有返回值的函数。即如果该函数没有返回值，那它的类型就是 void。
+
+
+
+### undefined
+
+undefined 的最大价值主要体现在接口类型上，它表示一个可缺省、未定义的属性。
+
+注：我们可以把 undefined 值或类型是 undefined 的变量赋值给 void 类型变量，反过来，类型是 void 但值是 undefined 的变量不能赋值给 undefined 类型。
+
+
+
+### null
+
+表明对象或属性可能是空值。
+
+
+
+### never
+
+never 表示永远不会发生值的类型
+
+
+
+### object
+
+object 类型表示非原始类型的类型，即非 number、string、boolean、bigint、symbol、null、undefined 的类型。
+
+
+
+### 字面量类型
+
+在 TypeScript 中，字面量不仅可以表示值，还可以表示类型，即所谓的字面量类型。
+
+字符串字面量类型
+
+数字字面量类型
+
+布尔字面量类型
+
+
+
+### 类型断言
+
+```javascript
+const arrayNumber: number[] = [1, 2, 3, 4];
+const greaterThan2: number = arrayNumber.find(num => num > 2) as number;
+
+/** str 类型是 '"str"' */
+let str = 'str' as const;
+/** readOnlyArr 类型是 'readonly [0, 1]' */
+const readOnlyArr = [0, 1] as const;
+
+userInfo.id!.toFixed(); // ok，但不建议
+userInfo.name!.toLowerCase() // ok，但不建议
+// 比非空断言更安全、类型守卫更方便的做法是使用单问号（Optional Chain）、双问号（空值合并）
+userInfo.id?.toFixed();
+// 空值合并，当左侧的操作数为 null 或者 undefined 时，返回其右侧操作数，否则返回左侧操作数。
+// 与逻辑或操作符（||）不同，逻辑或操作符会在左侧操作数为假值时返回右侧操作数。也就是说，如果使用 || 来为某些变量设置默认值，可能会遇到意料之外的行为。比如为假值（例如，'' 或 0）时。
+const myName = userInfo.name?? `my name is ${info.name}`;
+
+```
+
+
+
+### 类型守卫
+
+```javascript
+let mayNullOrUndefinedOrString: null | undefined | string;
+if (typeof mayNullOrUndefinedOrString === 'string') {
+  mayNullOrUndefinedOrString.toString(); // ok
+}
+```
+
 
 
 ## 常见错误
